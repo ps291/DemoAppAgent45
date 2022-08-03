@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<script>
+
+    setTimeout(function () {
+        $('#about')[0].click();
+    }, 3000);
+
+
+
+
+</script>
+<script>
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        document.getElementById("demo").value =
+            this.responseText;
+    }
+    xhttp.open("GET", "https://gorest.co.in/public/v2/users");
+    xhttp.send();
+
+</script>
+<div id="HttpCall">
+    <h6>HTTP CAll</h6>
+    <input type="checkbox" checked="true" width="500px" height="15px" />
+</div>
+
+<div id="MongoDiv">
+    <h6>Mongo CAll</h6>
+    <input type="checkbox" checked="true" width="500px" height="15px" />
+</div>
+<div id="demoDiv">
+    <h6>WebAPI CAll</h6>
+    <input id="demo" type="text" style="max-width: 1000px !important; width: 1000px !important; height: 50px !important" />
+</div>
+
+<div id="SQLDiv">
+    <h6>SQL DB CAll</h6>
+    <input type="checkbox" checked="true" width="500px" height="15px" />
+</div>
+<div id="WCFDiv">
+    <h6>WCF CAll</h6>
+    <input type="checkbox" checked="true" width="500px" height="15px" />
+</div>
+<h6>HTML</h6>
+<img src="~/img/apm-platform-advantages.svg" />
