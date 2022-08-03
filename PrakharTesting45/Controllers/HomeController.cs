@@ -12,33 +12,41 @@ namespace PrakharTesting45.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult HttpCall()
         {
-            GetWCFCall();
-            GetMonGoDBCall();
-            GetSQLDBCall();
-            GetWebAPICall();
-
+            ViewBag.Message = "HTTP Call done Successfully";
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult SQLCall()
         {
-            ViewBag.Message = "Your application description page.";
-            GetWCFCall();
-            GetMonGoDBCall();
+            ViewBag.Message = "SQL Call done Successfully";
             GetSQLDBCall();
-            GetWebAPICall();
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult WCFCall()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "WCF Call done Successfully";
             GetWCFCall();
-            GetMonGoDBCall();
-            GetSQLDBCall();
+            return View();
+        }
+        public ActionResult WebAPICall()
+        {
+            ViewBag.Message = "WebAPI Call done Successfully";
             GetWebAPICall();
+            return View();
+        }
+        public ActionResult MongoDBCall()
+        {
+            ViewBag.Message = "MondoDB Call done Successfully";
+            GetMonGoDBCall();
+            return View();
+        }
+        public ActionResult RaiseException()
+        {
+            ViewBag.Message = "Exception Call done Successfully";
+            GetException();
             return View();
         }
         public SqlConnection Conn;
@@ -119,7 +127,18 @@ namespace PrakharTesting45.Controllers
             {
                 throw ex;
             }
-
+        }
+        private void GetException()
+        {
+            try
+            {
+                var c = 0;
+                var data = 1 / c;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

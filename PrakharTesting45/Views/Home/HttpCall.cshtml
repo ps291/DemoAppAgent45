@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+   
+}
+<script>
+
+    //setTimeout(function () {
+    //    $('#about')[0].click();
+    //}, 3000);
+
+
+
+
+</script>
+<script>
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        document.getElementById("demo").value =
+            this.responseText;
+    }
+    xhttp.open("GET", "https://gorest.co.in/public/v2/users");
+    xhttp.send();
+
+</script>
+<div>
+    <h1>@ViewBag.Message</h1>
+    <input id="demo" type="text" style="max-width: 1000px !important; width: 1000px !important; height: 50px !important" />
+    <br />
+    <br />
+    <a href="https://google.com">Redirect to Google.com</a>
+</div>

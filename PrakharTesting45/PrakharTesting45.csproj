@@ -160,6 +160,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,8 +185,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="img\apm-platform-advantages.svg" />
-    <Content Include="img\Raku.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Connected Services\AgentDBService\WcfService.wsdl" />
@@ -198,7 +197,6 @@
     <None Include="Connected Services\AgentDBService\WcfService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="img\saas.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -221,9 +219,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\HttpCall.cshtml" />
+    <Content Include="Views\Home\SQLCall.cshtml" />
+    <Content Include="Views\Home\RaiseException.cshtml" />
+    <Content Include="Views\Home\MongoDBCall.cshtml" />
+    <Content Include="Views\Home\WebAPICall.cshtml" />
+    <Content Include="Views\Home\WCFCall.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

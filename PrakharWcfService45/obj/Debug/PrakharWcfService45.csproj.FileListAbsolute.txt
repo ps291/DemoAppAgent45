@@ -8,3 +8,13 @@ C:\Users\prakhar2\source\repos\PrakharWcfService45\bin\EntityFramework.xml
 C:\Users\prakhar2\source\repos\PrakharWcfService45\obj\Debug\PrakharWcfService45.csproj.CopyComplete
 C:\Users\prakhar2\source\repos\PrakharWcfService45\obj\Debug\PrakharWcfService45.dll
 C:\Users\prakhar2\source\repos\PrakharWcfService45\obj\Debug\PrakharWcfService45.pdb
+D:\Github\DemoAppAgent45\PrakharWcfService45\bin\PrakharWcfService45.dll.config
+D:\Github\DemoAppAgent45\PrakharWcfService45\bin\PrakharWcfService45.dll
+D:\Github\DemoAppAgent45\PrakharWcfService45\bin\PrakharWcfService45.pdb
+D:\Github\DemoAppAgent45\PrakharWcfService45\bin\EntityFramework.dll
+D:\Github\DemoAppAgent45\PrakharWcfService45\bin\EntityFramework.xml
+D:\Github\DemoAppAgent45\PrakharWcfService45\obj\Debug\PrakharWcfService45.csproj.AssemblyReference.cache
+D:\Github\DemoAppAgent45\PrakharWcfService45\obj\Debug\PrakharWcfService45.csproj.CoreCompileInputs.cache
+D:\Github\DemoAppAgent45\PrakharWcfService45\obj\Debug\PrakharWcfService45.csproj.CopyComplete
+D:\Github\DemoAppAgent45\PrakharWcfService45\obj\Debug\PrakharWcfService45.dll
+D:\Github\DemoAppAgent45\PrakharWcfService45\obj\Debug\PrakharWcfService45.pdb
