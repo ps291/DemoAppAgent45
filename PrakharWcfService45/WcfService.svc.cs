@@ -17,5 +17,15 @@ namespace PrakharWcfService45
             return db.TR_Agent.ToList();
         }
 
+        public string UpdateAgentData(string id)
+        {
+            AgentDBEntities db = new AgentDBEntities();
+            List<TR_Agent> t = db.TR_Agent.ToList();
+            t[0].AgentName = "DEMO";
+            db.SaveChanges();
+
+            return "Updated Successfully";
+        }
+
     }
 }

@@ -9,7 +9,27 @@
 </div>
 
 <br />
+
+<h6>BackEnd External APIs Call Successfully [GET, POST, DELETE]</h6>
+<code><ul>
+    <li>Post https://services.odata.org/TripPinRESTierService/ResetDataSource </li>
+    <br />
+    <li>Delete Lambda Data https://services.odata.org/TripPinRESTierService/People('russellwhyte') </li>
+    <br />
+    <li>Get Data https://gorest.co.in/public/v2/ </li>
+    <br />
+    <li>Get Querying Data https://services.odata.org/TripPinRESTierService/GetNearestAirport(lat = 33, lon = -118) </li>
+    <br />
+    <li>Get Querying Data https://services.odata.org/TripPinRESTierService/Airports?$filter=contains(Location/Address, 'San Francisco') </li>
+    <br />
+    <li>Get Etag https://services.odata.org/TripPinRESTierService/Airlines </li>
+</ul>
+</code>
+<br /><br />
+<h6>Call API from UI</h6>
 <ul>
+
+    <br />
     <li><a href="../api/Values/">GET Data</a></li>
     <br />
     <li><a href="../api/Values/1">GET Data By Id</a></li>

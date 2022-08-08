@@ -99,6 +99,12 @@ namespace PrakharTesting45.AgentDBService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/AgentData", ReplyAction="http://tempuri.org/IWcfService/AgentDataResponse")]
         System.Threading.Tasks.Task<PrakharTesting45.AgentDBService.TR_Agent[]> AgentDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/UpdateAgentData", ReplyAction="http://tempuri.org/IWcfService/UpdateAgentDataResponse")]
+        string UpdateAgentData(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/UpdateAgentData", ReplyAction="http://tempuri.org/IWcfService/UpdateAgentDataResponse")]
+        System.Threading.Tasks.Task<string> UpdateAgentDataAsync(string id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -134,6 +140,14 @@ namespace PrakharTesting45.AgentDBService {
         
         public System.Threading.Tasks.Task<PrakharTesting45.AgentDBService.TR_Agent[]> AgentDataAsync() {
             return base.Channel.AgentDataAsync();
+        }
+        
+        public string UpdateAgentData(string id) {
+            return base.Channel.UpdateAgentData(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> UpdateAgentDataAsync(string id) {
+            return base.Channel.UpdateAgentDataAsync(id);
         }
     }
 }

@@ -1,10 +1,14 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Mvc;
 
@@ -40,7 +44,7 @@ namespace PrakharTesting45.Controllers
         public ActionResult MongoDBCall()
         {
             ViewBag.Message = "MondoDB Call done Successfully";
-            GetMonGoDBCall();
+            ViewBag.Result = GetMonGoDBCall();
             return View();
         }
         public ActionResult RaiseException()
@@ -54,9 +58,9 @@ namespace PrakharTesting45.Controllers
         {
             try
             {
-                
-            string ConnStr = @"Data Source=.;Initial Catalog=AgentDB;Integrated Security=SSPI;";
-            Conn = new SqlConnection(ConnStr);
+                //string ConnStr = @"Data Source=.;Initial Catalog=AgentDB;Integrated Security=SSPI;";
+                string ConnStr = @"Data Source=10.13.164.246;Initial Catalog=AgentDB;User id=sa;Password=password123!;";
+                Conn = new SqlConnection(ConnStr);
             string SqlString = "SELECT * FROM TR_Agent WHERE ID = 1;";
 
             SqlDataAdapter sda = new SqlDataAdapter(SqlString, Conn);
@@ -89,6 +93,57 @@ namespace PrakharTesting45.Controllers
 
                 var result = responseTask.Result;
                 }
+
+                // Function and Action
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                string url = "https://services.odata.org/TripPinRESTierService/ResetDataSource";
+                string strResult = string.Empty;
+                HttpWebRequest webrequest = (HttpWebRequest)WebRequest.Create(url);
+                webrequest.Method = "POST";
+                webrequest.ContentType = "application/x-www-form-urlencoded";
+                HttpWebResponse webresponse = (HttpWebResponse)webrequest.GetResponse();
+
+
+                string url1 = "https://services.odata.org/TripPinRESTierService/GetNearestAirport(lat = 33, lon = -118)";
+                string strResult1 = string.Empty;
+                HttpWebRequest webrequest1 = (HttpWebRequest)WebRequest.Create(url);
+                webrequest.Method = "GET";
+                webrequest.ContentType = "application/x-www-form-urlencoded";
+                HttpWebResponse webresponse1 = (HttpWebResponse)webrequest.GetResponse();
+
+                //Querying Data
+                string url2 = "https://services.odata.org/TripPinRESTierService/Me/Friends?$filter=Friends/any(f:f/FirstName eq 'Scott')";
+                string strResult2 = string.Empty;
+                HttpWebRequest webrequest2 = (HttpWebRequest)WebRequest.Create(url);
+                webrequest.Method = "GET";
+                webrequest.ContentType = "application/x-www-form-urlencoded";
+                HttpWebResponse webresponse2 = (HttpWebResponse)webrequest.GetResponse();
+
+                //Querying Data
+                string url3 = "https://services.odata.org/TripPinRESTierService/Airports?$filter=contains(Location/Address, 'San Francisco')";
+                string strResult3 = string.Empty;
+                HttpWebRequest webrequest3 = (HttpWebRequest)WebRequest.Create(url);
+                webrequest.Method = "GET";
+                webrequest.ContentType = "application/x-www-form-urlencoded";
+                HttpWebResponse webresponse3 = (HttpWebResponse)webrequest.GetResponse();
+
+                //Request Etag
+                string url4 = "https://services.odata.org/TripPinRESTierService/Airlines";
+                string strResult4 = string.Empty;
+                HttpWebRequest webrequest4 = (HttpWebRequest)WebRequest.Create(url);
+                webrequest.Method = "GET";
+                webrequest.ContentType = "application/x-www-form-urlencoded";
+                HttpWebResponse webresponse4 = (HttpWebResponse)webrequest.GetResponse();
+
+                //Delete Data
+                string url5 = "https://services.odata.org/TripPinRESTierService/People('russellwhyte')";
+                string strResult5 = string.Empty;
+                HttpWebRequest webrequest5 = (HttpWebRequest)WebRequest.Create(url);
+                webrequest.Method = "DELETE";
+                webrequest.ContentType = "application/x-www-form-urlencoded";
+                HttpWebResponse webresponse5 = (HttpWebResponse)webrequest.GetResponse();
+            
             }
             catch (Exception ex)
             {
@@ -96,19 +151,32 @@ namespace PrakharTesting45.Controllers
             }
         }
 
-        private void GetMonGoDBCall()
+        private string GetMonGoDBCall()
         {
             try
             {
-                var dbClient = new MongoClient("mongodb://127.0.0.1:27017");
+                var dbClient = new MongoClient("mongodb+srv://psmongodb:IKL5kagYu5bBDODs@cluster0.epopdyt.mongodb.net/?retryWrites=true&w=majority");
                 var dbList = dbClient.ListDatabases().ToList();
 
-                Console.WriteLine("The list of databases are:");
 
+                Console.WriteLine("The list of databases are:");
+                // List of database
                 foreach (var item in dbList)
                 {
                     Console.WriteLine(item);
                 }
+                // Call Atlas MongoDB Dataset
+                var mongo_database = dbClient.GetDatabase("sample_weatherdata");
+                var collection = mongo_database.GetCollection<BsonDocument>("data");
+                var records = collection.Find(FilterDefinition<BsonDocument>.Empty).Limit(2).ToList();
+
+                // Call Atlas DB stats
+                IMongoDatabase db = dbClient.GetDatabase("sample_weatherdata");
+                var command = new BsonDocument { { "dbstats", 1 } };
+                var result = db.RunCommand<BsonDocument>(command);
+
+
+                return result.ToJson();
             }
             catch (Exception ex)
             {
@@ -121,7 +189,11 @@ namespace PrakharTesting45.Controllers
             try
             {
                 AgentDBService.WcfServiceClient wcfServiceClient = new AgentDBService.WcfServiceClient();
+                //update
+                var updatedata = wcfServiceClient.UpdateAgentData("123");
+                //Get
                 var data = wcfServiceClient.AgentData();
+
             }
             catch(Exception ex)
             {
@@ -130,15 +202,9 @@ namespace PrakharTesting45.Controllers
         }
         private void GetException()
         {
-            try
-            {
                 var c = 0;
                 var data = 1 / c;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            
         }
     }
 }
