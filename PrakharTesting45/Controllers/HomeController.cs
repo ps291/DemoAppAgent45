@@ -58,8 +58,7 @@ namespace PrakharTesting45.Controllers
         {
             try
             {
-                //string ConnStr = @"Data Source=.;Initial Catalog=AgentDB;Integrated Security=SSPI;";
-                string ConnStr = @"Data Source=10.13.164.246;Initial Catalog=AgentDB;User id=sa;Password=password123!;";
+                var ConnStr = System.Configuration.ConfigurationManager.ConnectionStrings["SQLConnectionString"].ConnectionString;
                 Conn = new SqlConnection(ConnStr);
             string SqlString = "SELECT * FROM TR_Agent WHERE ID = 1;";
 
@@ -155,7 +154,8 @@ namespace PrakharTesting45.Controllers
         {
             try
             {
-                var dbClient = new MongoClient("mongodb+srv://psmongodb:IKL5kagYu5bBDODs@cluster0.epopdyt.mongodb.net/?retryWrites=true&w=majority");
+                var ConnMongoDB = System.Configuration.ConfigurationManager.ConnectionStrings["MongoDBConnectionString"].ConnectionString;
+                var dbClient = new MongoClient(ConnMongoDB);
                 var dbList = dbClient.ListDatabases().ToList();
 
 

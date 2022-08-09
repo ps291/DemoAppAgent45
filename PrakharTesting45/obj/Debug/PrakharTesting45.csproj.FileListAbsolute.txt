@@ -177,6 +177,7 @@ C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\bin\Mic
 C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\bin\MongoDB.Bson.dll
 C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\bin\MongoDB.Driver.Core.dll
 C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\bin\MongoDB.Driver.dll
+C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\bin\MySql.Data.dll
 C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\bin\Newtonsoft.Json.dll
 C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\bin\System.Buffers.dll
 C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\bin\System.Net.Http.Formatting.dll
@@ -212,5 +213,4 @@ C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\obj\Deb
 C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\obj\Debug\PrakharTesting45.csproj.CopyComplete
 C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\obj\Debug\PrakharTesting45.dll
 C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\obj\Debug\PrakharTesting45.pdb
-C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\bin\MySql.Data.dll
 C:\Users\prakhar.saxena\Documents\GitHub\DemoAppAgent45\PrakharTesting45\obj\Debug\PrakharTesting45.csproj.AssemblyReference.cache
